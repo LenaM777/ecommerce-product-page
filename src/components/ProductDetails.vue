@@ -1,20 +1,9 @@
 <script setup>
 import { ref } from "vue";
-import minusIcon from "@/assets/icons/icon-minus.svg";
-import plusIcon from "@/assets/icons/icon-plus.svg";
 import cartIcon from "@/assets/icons/icon-cart.svg";
+import BaseQuantitySelector from "./BaseQuantitySelector.vue";
 
 const quantity = ref(0);
-
-const increment = () => {
-  quantity.value++;
-};
-
-const decrement = () => {
-  if (quantity.value > 0) {
-    quantity.value--;
-  }
-};
 </script>
 
 <template>
@@ -53,31 +42,7 @@ const decrement = () => {
     </div>
 
     <div class="flex flex-col md:flex-row gap-4 items-center w-full">
-      <div
-        class="flex items-center justify-between bg-light-grayish-blue w-full md:w-1/3 h-14 rounded-xl px-4"
-      >
-        <button
-          @click="decrement"
-          class="p-2 cursor-pointer hover:opacity-60 transition-opacity focus:outline-none"
-          aria-label="Decrease quantity"
-        >
-          <img :src="minusIcon" alt="" aria-hidden="true" />
-        </button>
-        <span
-          class="text-very-dark-blue font-bold text-base"
-          aria-live="polite"
-        >
-          {{ quantity }}
-        </span>
-        <button
-          @click="increment"
-          class="p-2 cursor-pointer hover:opacity-60 transition-opacity focus:outline-none"
-          aria-label="Increase quantity"
-        >
-          <img :src="plusIcon" alt="" aria-hidden="true" />
-        </button>
-      </div>
-
+      <BaseQuantitySelector v-model="quantity" />
       <button
         class="flex items-center justify-center gap-4 bg-orange-primary hover:bg-orange-primary/70 text-very-dark-blue font-bold w-full md:w-2/3 h-14 rounded-xl shadow-lg shadow-orange-primary/30 cursor-pointer transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-very-dark-blue"
       >
