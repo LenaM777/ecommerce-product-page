@@ -1,6 +1,7 @@
 <script setup>
 import TheHeader from "./components/TheHeader.vue";
 import ProductGallery from "./components/ProductGallery.vue";
+import ProductDetails from "./components/ProductDetails.vue";
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import ProductGallery from "./components/ProductGallery.vue";
         class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 pt-8 md:pt-20 pb-16 items-center"
       >
         <ProductGallery />
+        <ProductDetails />
       </main>
     </div>
   </div>
