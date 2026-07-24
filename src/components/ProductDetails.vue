@@ -7,7 +7,7 @@ const quantity = ref(0);
 </script>
 
 <template>
-  <section class="w-full max-w-[445px] mx-auto px-6 md:px-0">
+  <section class="w-full max-w-[445px] mx-auto px-0 md:px-0">
     <span
       class="text-dark-grayish-blue text-xs uppercase font-bold tracking-widest block mb-3 md:mb-4"
     >

@@ -10,7 +10,7 @@ import ProductDetails from "./components/ProductDetails.vue";
       <TheHeader />
 
       <main
-        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 pt-8 md:pt-20 pb-16 items-center"
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 pt-8 md:pt-20 pb-16 md:items-center"
       >
         <ProductGallery />
         <ProductDetails />
