@@ -8,7 +8,7 @@ const cartStore = useCartStore();
 
 <template>
   <div
-    class="absolute top-20 right-0 w-[calc(100%-2rem)] mx-4 md:mx-0 md:w-[360px] bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-200 z-50"
+    class="absolute top-20 md:top-28 right-0 w-[calc(100%-2rem)] mx-4 md:mx-0 md:w-[360px] bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-200 z-50"
     role="dialog"
     aria-label="Shopping cart contents"
   >

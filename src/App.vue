@@ -11,7 +11,7 @@ const isLightboxOpen = ref(false);
 <template>
   <div class="min-h-screen bg-white font-sans antialiased text-very-dark-blue">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <TheHeader class="px-6 md:px-0" />
+      <TheHeader />
 
       <main
         class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 pt-8 md:pt-20 pb-16 md:items-center"

@@ -41,9 +41,7 @@ const prevSlide = () => {
   <div
     class="flex flex-col gap-8 w-[calc(100%+3rem)] -mx-6 md:mx-auto md:w-full md:max-w-[445px]"
   >
-    <div
-      class="relative w-full h-[300px] sm:h-[400px] md:h-auto md:aspect-square"
-    >
+    <div class="relative w-full aspect-square md:h-auto md:aspect-square">
       <button
         @click="$emit('main-click')"
         class="w-full h-full overflow-hidden md:rounded-2xl bg-light-grayish-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary cursor-pointer text-left block"
