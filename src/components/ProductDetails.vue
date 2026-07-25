@@ -2,8 +2,17 @@
 import { ref } from "vue";
 import cartIcon from "@/assets/icons/icon-cart.svg";
 import BaseQuantitySelector from "./BaseQuantitySelector.vue";
+import { useCartStore } from "@/stores/cart";
 
+const cartStore = useCartStore();
 const quantity = ref(0);
+
+const handleAddToCart = () => {
+  if (quantity.value > 0) {
+    cartStore.addToCart(quantity.value);
+    quantity.value = 0;
+  }
+};
 </script>
 
 <template>
@@ -44,6 +53,7 @@ const quantity = ref(0);
     <div class="flex flex-col md:flex-row gap-4 items-center w-full">
       <BaseQuantitySelector v-model="quantity" />
       <button
+        @click="handleAddToCart"
         class="flex items-center justify-center gap-4 bg-orange-primary hover:bg-orange-primary/70 text-very-dark-blue font-bold w-full md:w-2/3 h-14 rounded-xl shadow-lg shadow-orange-primary/30 cursor-pointer transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-very-dark-blue"
       >
         <img
