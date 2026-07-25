@@ -42,19 +42,25 @@ const prevSlide = () => {
     class="flex flex-col gap-8 w-[calc(100%+3rem)] -mx-6 md:mx-auto md:w-full md:max-w-[445px]"
   >
     <div
-      class="relative overflow-hidden h-[300px] sm:h-[400px] md:h-auto md:aspect-square md:rounded-2xl bg-light-grayish-blue w-full"
+      class="relative w-full h-[300px] sm:h-[400px] md:h-auto md:aspect-square"
     >
-      <img
-        :src="images[activeIndex].full"
-        alt="Product View"
-        class="w-full h-full object-cover cursor-pointer"
+      <button
         @click="$emit('main-click')"
-      />
+        class="w-full h-full overflow-hidden md:rounded-2xl bg-light-grayish-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary cursor-pointer text-left block"
+        aria-label="View larger product image"
+      >
+        <img
+          :src="images[activeIndex].full"
+          alt="Product View"
+          class="w-full h-full object-cover cursor-pointer"
+          @click="$emit('main-click')"
+        />
+      </button>
       <template v-if="showArrows || true">
         <div :class="{ 'md:hidden': !showArrows }">
           <button
             @click="prevSlide"
-            class="absolute left-4 md:-left-6 top-1/2 -translate-y-1/2 bg-white w-11 h-11 rounded-full flex items-center justify-center cursor-pointer shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary"
+            class="absolute left-4 md:-left-6 top-1/2 -translate-y-1/2 bg-white w-11 h-11 rounded-full flex items-center justify-center cursor-pointer shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary z-20"
             aria-label="Previous image"
           >
             <img
@@ -66,7 +72,7 @@ const prevSlide = () => {
           </button>
           <button
             @click="nextSlide"
-            class="absolute right-4 md:-right-6 top-1/2 -translate-y-1/2 bg-white w-11 h-11 rounded-full flex items-center justify-center cursor-pointer shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary"
+            class="absolute right-4 md:-right-6 top-1/2 -translate-y-1/2 bg-white w-11 h-11 rounded-full flex items-center justify-center cursor-pointer shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary z-20"
             aria-label="Next image"
           >
             <img
