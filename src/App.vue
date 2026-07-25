@@ -4,6 +4,7 @@ import TheHeader from "./components/TheHeader.vue";
 import ProductGallery from "./components/ProductGallery.vue";
 import ProductDetails from "./components/ProductDetails.vue";
 import ProductLightbox from "./components/ProductLightbox.vue";
+import TheFooter from "./components/TheFooter.vue";
 
 const isLightboxOpen = ref(false);
 </script>
@@ -23,6 +24,7 @@ const isLightboxOpen = ref(false);
         />
         <ProductDetails />
       </main>
+      <TheFooter />
     </div>
 
     <ProductLightbox
