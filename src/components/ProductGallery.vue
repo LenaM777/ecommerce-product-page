@@ -53,7 +53,6 @@ const prevSlide = () => {
           :src="images[activeIndex].full"
           alt="Product View"
           class="w-full h-full object-cover cursor-pointer"
-          @click="$emit('main-click')"
         />
       </button>
       <template v-if="showArrows || true">
