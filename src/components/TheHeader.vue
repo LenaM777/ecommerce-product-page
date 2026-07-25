@@ -1,24 +1,43 @@
 <script setup>
 import { ref, nextTick, watch } from "vue";
 import { useFocusTrap } from "@vueuse/integrations/useFocusTrap";
+import { onClickOutside } from "@vueuse/core";
+import { useCartStore } from "@/stores/cart";
 import logo from "@/assets/icons/logo.svg";
 import cartIcon from "@/assets/icons/icon-cart.svg";
 import menuIcon from "@/assets/icons/icon-menu.svg";
 import closeIcon from "@/assets/icons/icon-close.svg";
 import avatar from "@/assets/images/image-avatar.png";
-import { useCartStore } from "@/stores/cart";
-
-const cartStore = useCartStore();
+import TheCartDropdown from "./TheCartDropdown.vue";
 
 const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
 const isMenuOpen = ref(false);
-
+const isCartOpen = ref(false);
 const mobileMenuRef = ref(null);
+const cartDropdownRef = ref(null);
 
+const cartStore = useCartStore();
 const { activate, deactivate } = useFocusTrap(mobileMenuRef);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+
+const toggleCart = () => {
+  isCartOpen.value = !isCartOpen.value;
+};
+
+onClickOutside(cartDropdownRef, () => {
+  if (isCartOpen.value) isCartOpen.value = false;
+});
+
+const handleCartFocusOut = (event) => {
+  if (
+    cartDropdownRef.value &&
+    !cartDropdownRef.value.contains(event.relatedTarget)
+  ) {
+    isCartOpen.value = false;
+  }
 };
 
 watch(isMenuOpen, async (isOpen) => {
@@ -109,6 +128,7 @@ watch(isMenuOpen, async (isOpen) => {
 
     <div class="flex items-center gap-5 md:gap-11">
       <button
+        @click="toggleCart"
         class="relative cursor-pointer group focus-visible:ring-2 focus-visible:ring-orange-primary rounded-sm p-1"
         :aria-label="`Shopping cart, ${cartStore.cartQuantity} items`"
       >
@@ -137,6 +157,9 @@ watch(isMenuOpen, async (isOpen) => {
           class="h-6 w-6 md:h-12 md:w-12"
         />
       </button>
+      <div ref="cartDropdownRef" @focusout="handleCartFocusOut">
+        <TheCartDropdown v-if="isCartOpen" />
+      </div>
     </div>
   </header>
 </template>
