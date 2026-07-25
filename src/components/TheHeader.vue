@@ -6,6 +6,9 @@ import cartIcon from "@/assets/icons/icon-cart.svg";
 import menuIcon from "@/assets/icons/icon-menu.svg";
 import closeIcon from "@/assets/icons/icon-close.svg";
 import avatar from "@/assets/images/image-avatar.png";
+import { useCartStore } from "@/stores/cart";
+
+const cartStore = useCartStore();
 
 const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
 const isMenuOpen = ref(false);
@@ -107,7 +110,7 @@ watch(isMenuOpen, async (isOpen) => {
     <div class="flex items-center gap-5 md:gap-11">
       <button
         class="relative cursor-pointer group focus-visible:ring-2 focus-visible:ring-orange-primary rounded-sm p-1"
-        aria-label="Shopping cart, 0 items"
+        :aria-label="`Shopping cart, ${cartStore.cartQuantity} items`"
       >
         <img
           :src="cartIcon"
@@ -115,6 +118,12 @@ watch(isMenuOpen, async (isOpen) => {
           aria-hidden="true"
           class="h-5 w-5 transition-colors group-hover:brightness-50"
         />
+        <span
+          v-if="cartStore.cartQuantity > 0"
+          class="absolute -top-1.5 -right-1.5 bg-orange-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-4 h-4 flex items-center justify-center leading-none"
+        >
+          {{ cartStore.cartQuantity }}
+        </span>
       </button>
 
       <button
