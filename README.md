@@ -6,6 +6,10 @@ This is a fully accessible and responsive solution to the [E-commerce product pa
 
 [View Live Site](https://ecommerce-product-page-five-zeta.vercel.app/)
 
+## Visuals & Performance
+
+**[Check live results on PageSpeed ​​Insights](https://pagespeed.web.dev/analysis/https-ecommerce-product-page-five-zeta-vercel-app/59v57xyvuo?form_factor=mobile)**
+
 ## Tech Stack
 
 - **Vue 3** (Composition API, `<script setup>`)
