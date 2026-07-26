@@ -8,7 +8,7 @@ const cartStore = useCartStore();
 
 <template>
   <div
-    class="absolute top-20 md:top-28 right-0 w-[calc(100%-2rem)] mx-4 md:mx-0 md:w-[360px] bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-200 z-50"
+    class="absolute top-20 md:top-28 left-4 right-4 md:left-auto md:right-0 md:w-[360px] bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-200 z-50"
     role="dialog"
     aria-label="Shopping cart contents"
   >
@@ -31,11 +31,11 @@ const cartStore = useCartStore();
             :src="productThumb"
             alt=""
             aria-hidden="true"
-            class="w-12 h-12 rounded-md object-cover"
+            class="w-12 h-12 rounded-md object-cover shrink-0"
           />
 
           <div
-            class="flex flex-col text-[15px] text-dark-grayish-blue flex-1"
+            class="flex flex-col text-[15px] text-dark-grayish-blue flex-1 min-w-0"
             :aria-label="`Product: Fall Limited Edition Sneakers. Price: 125 dollars, quantity: ${cartStore.cartQuantity}, total price: ${cartStore.totalPrice} dollars`"
           >
             <span class="truncate" aria-hidden="true"
@@ -51,7 +51,7 @@ const cartStore = useCartStore();
 
           <button
             @click="cartStore.removeFromCart"
-            class="p-2 cursor-pointer hover:opacity-60 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary rounded-md"
+            class="w-11 h-11 flex items-center justify-center cursor-pointer hover:opacity-60 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary rounded-md shrink-0"
             aria-label="Remove Fall Limited Edition Sneakers from cart"
           >
             <img :src="deleteIcon" alt="" aria-hidden="true" />

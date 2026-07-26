@@ -58,7 +58,7 @@ watch(isMenuOpen, async (isOpen) => {
       <button
         v-if="!isMenuOpen"
         @click="toggleMenu"
-        class="block md:hidden z-50 focus-visible:ring-2 focus-visible:ring-orange-primary rounded-sm p-1 focus:outline-none"
+        class="block md:hidden z-50 focus-visible:ring-2 focus-visible:ring-orange-primary rounded-sm w-11 h-11 flex items-center justify-center focus:outline-none"
         aria-label="Open menu"
       >
         <img :src="menuIcon" alt="" aria-hidden="true" />
@@ -106,7 +106,7 @@ watch(isMenuOpen, async (isOpen) => {
       >
         <button
           @click="toggleMenu"
-          class="block focus-visible:ring-2 focus-visible:ring-orange-primary rounded-sm p-1 focus:outline-none mb-12"
+          class="block focus-visible:ring-2 focus-visible:ring-orange-primary rounded-sm w-11 h-11 flex items-center justify-center focus:outline-none mb-12"
           aria-label="Close menu"
         >
           <img :src="closeIcon" alt="" aria-hidden="true" />
@@ -129,7 +129,7 @@ watch(isMenuOpen, async (isOpen) => {
     <div class="flex items-center gap-5 md:gap-11">
       <button
         @click="toggleCart"
-        class="relative cursor-pointer group focus-visible:ring-2 focus-visible:ring-orange-primary rounded-sm p-1"
+        class="relative cursor-pointer group focus-visible:ring-2 focus-visible:ring-orange-primary rounded-sm w-11 h-11 flex items-center justify-center focus:outline-none"
         :aria-label="`Shopping cart, ${cartStore.cartQuantity} items`"
       >
         <img

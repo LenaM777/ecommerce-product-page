@@ -21,7 +21,7 @@ const decrement = () => {
   >
     <button
       @click="decrement"
-      class="p-2 cursor-pointer hover:opacity-60 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary rounded-md"
+      class="w-11 h-11 flex items-center justify-center cursor-pointer hover:opacity-60 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary rounded-md"
       aria-label="Decrease quantity"
     >
       <img :src="minusIcon" alt="" aria-hidden="true" />
@@ -33,7 +33,7 @@ const decrement = () => {
 
     <button
       @click="increment"
-      class="p-2 cursor-pointer hover:opacity-60 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary rounded-md"
+      class="w-11 h-11 flex items-center justify-center cursor-pointer hover:opacity-60 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-primary rounded-md"
       aria-label="Increase quantity"
     >
       <img :src="plusIcon" alt="" aria-hidden="true" />
